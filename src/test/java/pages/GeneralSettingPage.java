@@ -39,21 +39,23 @@ public class GeneralSettingPage extends BasePage {
         waitForPageToBeLoaded();
     }
 
-    public void changeFirstNameTo(String newFirstName) {
+    public GeneralSettingPage changeFirstNameTo(String newFirstName) {
         editNameButton.click();
         waitForElementToBeVisible(firstNameField, 1).clear();
         firstNameField.sendKeys(newFirstName);
         reviewChangesButton.click();
+        return this;
     }
 
     public String getErrorMessage() {
         return errorNameChangingMessage.getText();
     }
 
-    public void saveChangesForUser(User user) {
+    public GeneralSettingPage saveChangesForUser(User user) {
         waitForElementToBeVisible(passwordForSavingChangesField, 2)
                 .sendKeys(user.getPassword());
         saveChangesButton.click();
+        return this;
     }
 
     public String getFirstName() {
