@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FacebookSuite1" verbose="1">
+    <test name="Login test">
+        <classes>
+            <class name="logic.LoginTest"/>
+        </classes>
+    </test>
+    <test name="Edit name test">
+        <classes>
+            <class name="logic.EditNameTest"/>
+        </classes>
+    </test>
+</suite>
+
+
