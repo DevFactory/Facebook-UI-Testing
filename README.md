@@ -5,6 +5,7 @@ Used technologies:<br />
   - Selenium WebDriver,<br />
   - TestNG,<br />
   - Hamcrest.
-<br />Covered cases:<br />
-  - Login test<br />
-  - Edit first name test.
+<br />
+Covered cases:<br />
+  Login test<br />
+  Edit first name test.
