@@ -4,8 +4,8 @@ Used technologies:<br />
   - Maven,<br />
   - Selenium WebDriver,<br />
   - TestNG,<br />
-  - Hamcrest.
-<br />
+  - Hamcrest.<br />
+  - 
 Covered cases:<br />
-  Login test<br />
-  Edit first name test.
+- Login test<br />
+- Edit first name test.
