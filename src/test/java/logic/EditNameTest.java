@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
 /**
- * Test class for testing of the user's first name changing.
+ * Test class for testing the user's first name changing.
  * Note: user name can be changed only once in 60 days, so none of these tests changes the name completely.
  * The main goal of tests is to verify the availability of name changing.
  * <p/>
