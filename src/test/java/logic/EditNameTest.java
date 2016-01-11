@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.containsString;
  * Note: user name can be changed only once in 60 days, so none of these tests changes the name completely.
  * The main goal of tests is to verify the availability of name changing.
  * <p/>
- * TODO: implement test for user creation for complete name changing in current test suite
+ * TODO: implement the functionality for automated user creation for complete name changing in current test suite
  *
  * @author Alex Ilyenko
  */
