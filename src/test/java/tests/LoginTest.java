@@ -1,6 +1,7 @@
 package tests;
 
 import core.BaseTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,6 @@ public class LoginTest extends BaseTest {
     public void login_WithValidCredentials_ShouldBeSuccessful() {
         loginToFacebookAs(validUser());
         assertTrue(userIsLoggedIn());
-        logOut();
     }
 
 
@@ -69,6 +69,7 @@ public class LoginTest extends BaseTest {
         return homePage.userIsLoggedIn();
     }
 
+    @AfterMethod
     private void logOut() {
         homePage.logOut();
     }

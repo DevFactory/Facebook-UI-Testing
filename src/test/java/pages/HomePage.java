@@ -44,8 +44,10 @@ public class HomePage extends BasePage {
     }
 
     public LoginPage logOut() {
-        accountArrow.click();
-        waitForElementToBeVisible(logOutOption, 2).click();
+        if (isElementDisplayed(accountArrow)) {
+            accountArrow.click();
+            waitForElementToBeVisible(logOutOption, 2).click();
+        }
         return new LoginPage(driver);
     }
 
