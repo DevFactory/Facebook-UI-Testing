@@ -10,15 +10,15 @@ import pages.HomePage;
 import pages.LoginPage;
 
 /**
- * Base test for encapsulating common logic for all tests
+ * Base test for encapsulating common tests for all tests
  * @author Alex Ilyenko
  */
 public abstract class BaseTest {
-    protected WebDriver driver;
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected GeneralSettingPage generalSettingsPage;
     protected User user;
+    private WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {

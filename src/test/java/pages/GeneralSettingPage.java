@@ -33,7 +33,7 @@ public class GeneralSettingPage extends BasePage {
     @FindBy(xpath = "//a[@href='/settings?tab=account&section=name']/span[@class='fcg']")
     private WebElement nameRow;
 
-    public GeneralSettingPage(WebDriver driver) {
+    GeneralSettingPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
         waitForPageToBeLoaded();
@@ -56,10 +56,6 @@ public class GeneralSettingPage extends BasePage {
                 .sendKeys(user.getPassword());
         saveChangesButton.click();
         return this;
-    }
-
-    public String getFirstName() {
-        return nameRow.getText().split(" ")[0];
     }
 
     public boolean saveChangesButtonIsVisible() {

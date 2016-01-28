@@ -6,11 +6,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Base page for encapsulation common logic for all pages
+ * Base page for encapsulation common tests for all pages
  * @author Alex Ilyenko
  */
 public abstract class BasePage {
-    public static final String BASE_PATH = "https://www.facebook.com/";
+    static final String BASE_PATH = "https://www.facebook.com/";
     protected final WebDriver driver;
 
     protected BasePage(WebDriver driver) {

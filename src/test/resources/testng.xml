@@ -3,12 +3,12 @@
 <suite name="FacebookSuite1" verbose="1">
     <test name="Login test">
         <classes>
-            <class name="logic.LoginTest"/>
+            <class name="tests.LoginTest"/>
         </classes>
     </test>
     <test name="Edit name test">
         <classes>
-            <class name="logic.EditNameTest"/>
+            <class name="tests.EditNameTest"/>
         </classes>
     </test>
 </suite>

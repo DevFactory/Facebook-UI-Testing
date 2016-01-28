@@ -24,7 +24,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[contains(text(), 'Log out')]")
     private WebElement logOutOption;
 
-    public HomePage(WebDriver driver) {
+    HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

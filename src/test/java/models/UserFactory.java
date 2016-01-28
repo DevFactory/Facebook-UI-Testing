@@ -12,7 +12,7 @@ import java.util.Properties;
  */
 public abstract class UserFactory {
     private static final String SPACES = "   ";
-    public static final String RESOURCES_CREDENTIALS_PATH = "src/test/resources/credentials.properties";
+    private static final String RESOURCES_CREDENTIALS_PATH = "src/test/resources/credentials.properties";
 
     /**
      * Creates and returns valid user
