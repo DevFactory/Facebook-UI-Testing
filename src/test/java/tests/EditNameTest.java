@@ -45,7 +45,7 @@ public class EditNameTest extends BaseTest {
     @Test
     public void editName_WithValidData_ShouldBeSuccessful() {
         changeFirstNameTo(VALID_NAME);
-        assertThat("Change button is not visible", changesCanBeDone());
+        assertThat("Change button is visible", changesCanBeDone());
     }
 
     /**
