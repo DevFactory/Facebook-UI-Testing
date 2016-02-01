@@ -1,6 +1,6 @@
 package pages;
 
-import core.BasePage;
+import base.BasePage;
 import models.UserFactory.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +14,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author Alex Ilyenko
  */
 public class LoginPage extends BasePage {
+
     @FindBy(id = "email")
     @CacheLookup
     private WebElement emailField;
@@ -48,7 +49,7 @@ public class LoginPage extends BasePage {
 
     @Override
     protected LoginPage waitForPageToBeLoaded() {
-        waitForElementToBeVisible(emailField, 2);
+        waitForElementToBeVisible(emailField, MIN_WAIT_TIMEOUT);
         return this;
     }
 }

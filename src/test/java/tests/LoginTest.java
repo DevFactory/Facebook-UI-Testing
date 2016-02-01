@@ -1,13 +1,13 @@
 package tests;
 
-import core.BaseTest;
+import base.BaseTest;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static core.ErrorMessage.INCORRECT_EMAIL_ADDRESS;
-import static core.ErrorMessage.INCORRECT_PASSWORD;
-import static core.ErrorMessageMatcher.equalToError;
+import static errors.ErrorMessage.INCORRECT_EMAIL_ADDRESS;
+import static errors.ErrorMessage.INCORRECT_PASSWORD;
+import static errors.ErrorMessageMatcher.equalToError;
 import static models.UserFactory.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertFalse;

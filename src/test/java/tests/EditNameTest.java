@@ -1,6 +1,6 @@
 package tests;
 
-import core.BaseTest;
+import base.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static core.ErrorMessage.*;
-import static core.ErrorMessageMatcher.containsError;
+import static errors.ErrorMessage.*;
+import static errors.ErrorMessageMatcher.containsError;
 import static models.UserFactory.validUser;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -23,6 +23,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @author Alex Ilyenko
  */
 public class EditNameTest extends BaseTest {
+
     private static final String VALID_NAME = "Alex";
     private static final String ONLY_SPACES = "        ";
     private static final String NICKNAME = "Superman";
@@ -48,9 +49,7 @@ public class EditNameTest extends BaseTest {
         assertThat("Change button is visible", changesCanBeDone());
     }
 
-    /**
-     * Test from the task!
-     */
+
     @Test
     public void editName_WithCurrentDate_ShouldNotBeSuccessful() {
         changeFirstNameTo(new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date()));
@@ -102,19 +101,11 @@ public class EditNameTest extends BaseTest {
     }
 
     private boolean changesCanBeDone() {
-        return generalSettingsPage.saveChangesButtonIsVisible();
+        return generalSettingsPage.canChangesBeDone();
     }
 
     private String errorMessage() {
         return generalSettingsPage.getErrorMessage();
     }
 
-    /**
-     * This method actually saves the changes for the user
-     *
-     * @see tests.EditNameTest
-     */
-    private void saveChanges() {
-        generalSettingsPage.saveChangesForUser(user);
-    }
 }

@@ -1,4 +1,4 @@
-package core;
+package base;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @author Alex Ilyenko
  */
 public abstract class BasePage {
+
+    protected static final int MAX_WAIT_TIMEOUT = 6;
+    protected static final int MIN_WAIT_TIMEOUT = 2;
+
     static final String BASE_PATH = "https://www.facebook.com/";
+
     protected final WebDriver driver;
 
     protected BasePage(WebDriver driver) {

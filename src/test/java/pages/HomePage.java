@@ -1,7 +1,6 @@
 package pages;
 
-import core.BasePage;
-import org.openqa.selenium.NoSuchElementException;
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -11,9 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Home page of the Facebook account
+ *
  * @author Alex Ilyenko
  */
 public class HomePage extends BasePage {
+
     @FindBy(id = "pageLoginAnchor")
     @CacheLookup
     private WebElement accountArrow;
@@ -31,29 +32,23 @@ public class HomePage extends BasePage {
 
     public GeneralSettingPage goToSettings() {
         accountArrow.click();
-        waitForElementToBeVisible(settingsOption, 2).click();
+        waitForElementToBeVisible(settingsOption, MIN_WAIT_TIMEOUT).click();
         return new GeneralSettingPage(driver);
     }
 
     public boolean userIsLoggedIn() {
-        try {
-            return accountArrow.isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+        return isElementDisplayed(accountArrow);
     }
 
     public LoginPage logOut() {
-        if (isElementDisplayed(accountArrow)) {
-            accountArrow.click();
-            waitForElementToBeVisible(logOutOption, 2).click();
-        }
+        accountArrow.click();
+        waitForElementToBeVisible(logOutOption, MIN_WAIT_TIMEOUT).click();
         return new LoginPage(driver);
     }
 
     @Override
     protected HomePage waitForPageToBeLoaded() {
-        waitForElementToBeVisible(accountArrow, 6);
+        waitForElementToBeVisible(accountArrow, MAX_WAIT_TIMEOUT);
         return this;
     }
 }

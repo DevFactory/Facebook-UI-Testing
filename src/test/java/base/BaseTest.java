@@ -1,4 +1,4 @@
-package core;
+package base;
 
 import models.UserFactory.User;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,10 @@ import pages.LoginPage;
  * @author Alex Ilyenko
  */
 public abstract class BaseTest {
+
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected GeneralSettingPage generalSettingsPage;
-    protected User user;
     private WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
@@ -36,7 +36,6 @@ public abstract class BaseTest {
     }
 
     protected void loginToFacebookAs(User user) {
-        this.user = user;
         homePage = loginPage.loginToAccountAs(user);
     }
 

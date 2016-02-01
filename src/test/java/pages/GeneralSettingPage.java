@@ -1,6 +1,6 @@
 package pages;
 
-import core.BasePage;
+import base.BasePage;
 import models.UserFactory.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author Alex Ilyenko
  */
 public class GeneralSettingPage extends BasePage {
+
     @FindBy(xpath = "//a[@href='/settings?tab=account&section=name']/span")
     private WebElement editNameButton;
 
@@ -25,7 +26,7 @@ public class GeneralSettingPage extends BasePage {
     private WebElement errorNameChangingMessage;
 
     @FindBy(id = "save_password")
-    private WebElement passwordForSavingChangesField;
+    private WebElement savePasswordField;
 
     @FindBy(className = "layerConfirm")
     private WebElement saveChangesButton;
@@ -41,7 +42,7 @@ public class GeneralSettingPage extends BasePage {
 
     public GeneralSettingPage changeFirstNameTo(String newFirstName) {
         editNameButton.click();
-        waitForElementToBeVisible(firstNameField, 1).clear();
+        waitForElementToBeVisible(firstNameField, MIN_WAIT_TIMEOUT).clear();
         firstNameField.sendKeys(newFirstName);
         reviewChangesButton.click();
         return this;
@@ -52,19 +53,18 @@ public class GeneralSettingPage extends BasePage {
     }
 
     public GeneralSettingPage saveChangesForUser(User user) {
-        waitForElementToBeVisible(passwordForSavingChangesField, 2)
-                .sendKeys(user.getPassword());
+        waitForElementToBeVisible(savePasswordField, MIN_WAIT_TIMEOUT).sendKeys(user.getPassword());
         saveChangesButton.click();
         return this;
     }
 
-    public boolean saveChangesButtonIsVisible() {
-        return waitForElementToBeVisible(saveChangesButton, 2).isDisplayed();
+    public boolean canChangesBeDone() {
+        return isElementDisplayed(saveChangesButton);
     }
 
     @Override
     protected GeneralSettingPage waitForPageToBeLoaded() {
-        waitForElementToBeVisible(editNameButton, 6);
+        waitForElementToBeVisible(editNameButton, MAX_WAIT_TIMEOUT);
         return this;
     }
 }
